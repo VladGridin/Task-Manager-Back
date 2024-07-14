@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String      @id @default(cuid())
+  createdAt      DateTime    @default(now()) @map("created_at")
+  updatedAt      DateTime    @updatedAt @map("updated_at")
+  email          String      @unique
+  name           String
+  password       String
+  userAvatar     String?     @map("user_avatar")
+  workInterval   Int?        @default(50) @map("work_interval")
+  breakInterval  Int?        @default(10) @map("break_interval")
+  intervalsCount Int?        @default(7) @map("intervals_cont")
+  tasks          Task[]
+  TimeBlocks     TimeBlock[]
+
+  @@map("user")
+}
+
+model Task {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  name        String
+  priority    Prority?
+  isCompleted Boolean? @default(false) @map("is_complited")
+  userId      String   @map("user_id")
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@map("task")
+}
+
+model TimeBlock {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  name      String
+  color     String?
+  duration  Int
+  order     Int      @default(1)
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("time_block")
+}
+
+enum Prority {
+  low
+  medium
+  high
+}
