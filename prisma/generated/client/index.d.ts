@@ -28,6 +28,16 @@ export type Task = $Result.DefaultSelection<Prisma.$TaskPayload>
  * 
  */
 export type TimeBlock = $Result.DefaultSelection<Prisma.$TimeBlockPayload>
+/**
+ * Model PomodoroSession
+ * 
+ */
+export type PomodoroSession = $Result.DefaultSelection<Prisma.$PomodoroSessionPayload>
+/**
+ * Model PomodoroRound
+ * 
+ */
+export type PomodoroRound = $Result.DefaultSelection<Prisma.$PomodoroRoundPayload>
 
 /**
  * Enums
@@ -198,6 +208,26 @@ export class PrismaClient<
     * ```
     */
   get timeBlock(): Prisma.TimeBlockDelegate<ExtArgs>;
+
+  /**
+   * `prisma.pomodoroSession`: Exposes CRUD operations for the **PomodoroSession** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PomodoroSessions
+    * const pomodoroSessions = await prisma.pomodoroSession.findMany()
+    * ```
+    */
+  get pomodoroSession(): Prisma.PomodoroSessionDelegate<ExtArgs>;
+
+  /**
+   * `prisma.pomodoroRound`: Exposes CRUD operations for the **PomodoroRound** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PomodoroRounds
+    * const pomodoroRounds = await prisma.pomodoroRound.findMany()
+    * ```
+    */
+  get pomodoroRound(): Prisma.PomodoroRoundDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -677,7 +707,9 @@ export namespace Prisma {
   export const ModelName: {
     User: 'User',
     Task: 'Task',
-    TimeBlock: 'TimeBlock'
+    TimeBlock: 'TimeBlock',
+    PomodoroSession: 'PomodoroSession',
+    PomodoroRound: 'PomodoroRound'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -693,7 +725,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "task" | "timeBlock"
+      modelProps: "user" | "task" | "timeBlock" | "pomodoroSession" | "pomodoroRound"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -907,6 +939,146 @@ export namespace Prisma {
           }
         }
       }
+      PomodoroSession: {
+        payload: Prisma.$PomodoroSessionPayload<ExtArgs>
+        fields: Prisma.PomodoroSessionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PomodoroSessionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroSessionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PomodoroSessionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroSessionPayload>
+          }
+          findFirst: {
+            args: Prisma.PomodoroSessionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroSessionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PomodoroSessionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroSessionPayload>
+          }
+          findMany: {
+            args: Prisma.PomodoroSessionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroSessionPayload>[]
+          }
+          create: {
+            args: Prisma.PomodoroSessionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroSessionPayload>
+          }
+          createMany: {
+            args: Prisma.PomodoroSessionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PomodoroSessionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroSessionPayload>[]
+          }
+          delete: {
+            args: Prisma.PomodoroSessionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroSessionPayload>
+          }
+          update: {
+            args: Prisma.PomodoroSessionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroSessionPayload>
+          }
+          deleteMany: {
+            args: Prisma.PomodoroSessionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PomodoroSessionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.PomodoroSessionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroSessionPayload>
+          }
+          aggregate: {
+            args: Prisma.PomodoroSessionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePomodoroSession>
+          }
+          groupBy: {
+            args: Prisma.PomodoroSessionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PomodoroSessionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PomodoroSessionCountArgs<ExtArgs>
+            result: $Utils.Optional<PomodoroSessionCountAggregateOutputType> | number
+          }
+        }
+      }
+      PomodoroRound: {
+        payload: Prisma.$PomodoroRoundPayload<ExtArgs>
+        fields: Prisma.PomodoroRoundFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PomodoroRoundFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroRoundPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PomodoroRoundFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroRoundPayload>
+          }
+          findFirst: {
+            args: Prisma.PomodoroRoundFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroRoundPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PomodoroRoundFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroRoundPayload>
+          }
+          findMany: {
+            args: Prisma.PomodoroRoundFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroRoundPayload>[]
+          }
+          create: {
+            args: Prisma.PomodoroRoundCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroRoundPayload>
+          }
+          createMany: {
+            args: Prisma.PomodoroRoundCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PomodoroRoundCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroRoundPayload>[]
+          }
+          delete: {
+            args: Prisma.PomodoroRoundDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroRoundPayload>
+          }
+          update: {
+            args: Prisma.PomodoroRoundUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroRoundPayload>
+          }
+          deleteMany: {
+            args: Prisma.PomodoroRoundDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PomodoroRoundUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.PomodoroRoundUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PomodoroRoundPayload>
+          }
+          aggregate: {
+            args: Prisma.PomodoroRoundAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePomodoroRound>
+          }
+          groupBy: {
+            args: Prisma.PomodoroRoundGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PomodoroRoundGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PomodoroRoundCountArgs<ExtArgs>
+            result: $Utils.Optional<PomodoroRoundCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1070,11 +1242,13 @@ export namespace Prisma {
   export type UserCountOutputType = {
     tasks: number
     TimeBlocks: number
+    pomodoroSessions: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tasks?: boolean | UserCountOutputTypeCountTasksArgs
     TimeBlocks?: boolean | UserCountOutputTypeCountTimeBlocksArgs
+    pomodoroSessions?: boolean | UserCountOutputTypeCountPomodoroSessionsArgs
   }
 
   // Custom InputTypes
@@ -1100,6 +1274,44 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountTimeBlocksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TimeBlockWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountPomodoroSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PomodoroSessionWhereInput
+  }
+
+
+  /**
+   * Count Type PomodoroSessionCountOutputType
+   */
+
+  export type PomodoroSessionCountOutputType = {
+    rounds: number
+  }
+
+  export type PomodoroSessionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    rounds?: boolean | PomodoroSessionCountOutputTypeCountRoundsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PomodoroSessionCountOutputType without action
+   */
+  export type PomodoroSessionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroSessionCountOutputType
+     */
+    select?: PomodoroSessionCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PomodoroSessionCountOutputType without action
+   */
+  export type PomodoroSessionCountOutputTypeCountRoundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PomodoroRoundWhereInput
   }
 
 
@@ -1355,6 +1567,7 @@ export namespace Prisma {
     workInterval?: boolean
     tasks?: boolean | User$tasksArgs<ExtArgs>
     TimeBlocks?: boolean | User$TimeBlocksArgs<ExtArgs>
+    pomodoroSessions?: boolean | User$pomodoroSessionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1387,6 +1600,7 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tasks?: boolean | User$tasksArgs<ExtArgs>
     TimeBlocks?: boolean | User$TimeBlocksArgs<ExtArgs>
+    pomodoroSessions?: boolean | User$pomodoroSessionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1396,6 +1610,7 @@ export namespace Prisma {
     objects: {
       tasks: Prisma.$TaskPayload<ExtArgs>[]
       TimeBlocks: Prisma.$TimeBlockPayload<ExtArgs>[]
+      pomodoroSessions: Prisma.$PomodoroSessionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1774,6 +1989,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     tasks<T extends User$tasksArgs<ExtArgs> = {}>(args?: Subset<T, User$tasksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "findMany"> | Null>
     TimeBlocks<T extends User$TimeBlocksArgs<ExtArgs> = {}>(args?: Subset<T, User$TimeBlocksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TimeBlockPayload<ExtArgs>, T, "findMany"> | Null>
+    pomodoroSessions<T extends User$pomodoroSessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$pomodoroSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PomodoroSessionPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2164,6 +2380,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TimeBlockScalarFieldEnum | TimeBlockScalarFieldEnum[]
+  }
+
+  /**
+   * User.pomodoroSessions
+   */
+  export type User$pomodoroSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroSession
+     */
+    select?: PomodoroSessionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroSessionInclude<ExtArgs> | null
+    where?: PomodoroSessionWhereInput
+    orderBy?: PomodoroSessionOrderByWithRelationInput | PomodoroSessionOrderByWithRelationInput[]
+    cursor?: PomodoroSessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PomodoroSessionScalarFieldEnum | PomodoroSessionScalarFieldEnum[]
   }
 
   /**
@@ -4146,6 +4382,1944 @@ export namespace Prisma {
 
 
   /**
+   * Model PomodoroSession
+   */
+
+  export type AggregatePomodoroSession = {
+    _count: PomodoroSessionCountAggregateOutputType | null
+    _min: PomodoroSessionMinAggregateOutputType | null
+    _max: PomodoroSessionMaxAggregateOutputType | null
+  }
+
+  export type PomodoroSessionMinAggregateOutputType = {
+    id: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    isCompleted: boolean | null
+    userId: string | null
+  }
+
+  export type PomodoroSessionMaxAggregateOutputType = {
+    id: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    isCompleted: boolean | null
+    userId: string | null
+  }
+
+  export type PomodoroSessionCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    updatedAt: number
+    isCompleted: number
+    userId: number
+    _all: number
+  }
+
+
+  export type PomodoroSessionMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    updatedAt?: true
+    isCompleted?: true
+    userId?: true
+  }
+
+  export type PomodoroSessionMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    updatedAt?: true
+    isCompleted?: true
+    userId?: true
+  }
+
+  export type PomodoroSessionCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    updatedAt?: true
+    isCompleted?: true
+    userId?: true
+    _all?: true
+  }
+
+  export type PomodoroSessionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PomodoroSession to aggregate.
+     */
+    where?: PomodoroSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PomodoroSessions to fetch.
+     */
+    orderBy?: PomodoroSessionOrderByWithRelationInput | PomodoroSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PomodoroSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PomodoroSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PomodoroSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PomodoroSessions
+    **/
+    _count?: true | PomodoroSessionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PomodoroSessionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PomodoroSessionMaxAggregateInputType
+  }
+
+  export type GetPomodoroSessionAggregateType<T extends PomodoroSessionAggregateArgs> = {
+        [P in keyof T & keyof AggregatePomodoroSession]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePomodoroSession[P]>
+      : GetScalarType<T[P], AggregatePomodoroSession[P]>
+  }
+
+
+
+
+  export type PomodoroSessionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PomodoroSessionWhereInput
+    orderBy?: PomodoroSessionOrderByWithAggregationInput | PomodoroSessionOrderByWithAggregationInput[]
+    by: PomodoroSessionScalarFieldEnum[] | PomodoroSessionScalarFieldEnum
+    having?: PomodoroSessionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PomodoroSessionCountAggregateInputType | true
+    _min?: PomodoroSessionMinAggregateInputType
+    _max?: PomodoroSessionMaxAggregateInputType
+  }
+
+  export type PomodoroSessionGroupByOutputType = {
+    id: string
+    createdAt: Date
+    updatedAt: Date
+    isCompleted: boolean | null
+    userId: string
+    _count: PomodoroSessionCountAggregateOutputType | null
+    _min: PomodoroSessionMinAggregateOutputType | null
+    _max: PomodoroSessionMaxAggregateOutputType | null
+  }
+
+  type GetPomodoroSessionGroupByPayload<T extends PomodoroSessionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PomodoroSessionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PomodoroSessionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PomodoroSessionGroupByOutputType[P]>
+            : GetScalarType<T[P], PomodoroSessionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PomodoroSessionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    isCompleted?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    rounds?: boolean | PomodoroSession$roundsArgs<ExtArgs>
+    _count?: boolean | PomodoroSessionCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pomodoroSession"]>
+
+  export type PomodoroSessionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    isCompleted?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pomodoroSession"]>
+
+  export type PomodoroSessionSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    isCompleted?: boolean
+    userId?: boolean
+  }
+
+  export type PomodoroSessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    rounds?: boolean | PomodoroSession$roundsArgs<ExtArgs>
+    _count?: boolean | PomodoroSessionCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type PomodoroSessionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $PomodoroSessionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PomodoroSession"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      rounds: Prisma.$PomodoroRoundPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      createdAt: Date
+      updatedAt: Date
+      isCompleted: boolean | null
+      userId: string
+    }, ExtArgs["result"]["pomodoroSession"]>
+    composites: {}
+  }
+
+  type PomodoroSessionGetPayload<S extends boolean | null | undefined | PomodoroSessionDefaultArgs> = $Result.GetResult<Prisma.$PomodoroSessionPayload, S>
+
+  type PomodoroSessionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<PomodoroSessionFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: PomodoroSessionCountAggregateInputType | true
+    }
+
+  export interface PomodoroSessionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PomodoroSession'], meta: { name: 'PomodoroSession' } }
+    /**
+     * Find zero or one PomodoroSession that matches the filter.
+     * @param {PomodoroSessionFindUniqueArgs} args - Arguments to find a PomodoroSession
+     * @example
+     * // Get one PomodoroSession
+     * const pomodoroSession = await prisma.pomodoroSession.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PomodoroSessionFindUniqueArgs>(args: SelectSubset<T, PomodoroSessionFindUniqueArgs<ExtArgs>>): Prisma__PomodoroSessionClient<$Result.GetResult<Prisma.$PomodoroSessionPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one PomodoroSession that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {PomodoroSessionFindUniqueOrThrowArgs} args - Arguments to find a PomodoroSession
+     * @example
+     * // Get one PomodoroSession
+     * const pomodoroSession = await prisma.pomodoroSession.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PomodoroSessionFindUniqueOrThrowArgs>(args: SelectSubset<T, PomodoroSessionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PomodoroSessionClient<$Result.GetResult<Prisma.$PomodoroSessionPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first PomodoroSession that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroSessionFindFirstArgs} args - Arguments to find a PomodoroSession
+     * @example
+     * // Get one PomodoroSession
+     * const pomodoroSession = await prisma.pomodoroSession.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PomodoroSessionFindFirstArgs>(args?: SelectSubset<T, PomodoroSessionFindFirstArgs<ExtArgs>>): Prisma__PomodoroSessionClient<$Result.GetResult<Prisma.$PomodoroSessionPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first PomodoroSession that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroSessionFindFirstOrThrowArgs} args - Arguments to find a PomodoroSession
+     * @example
+     * // Get one PomodoroSession
+     * const pomodoroSession = await prisma.pomodoroSession.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PomodoroSessionFindFirstOrThrowArgs>(args?: SelectSubset<T, PomodoroSessionFindFirstOrThrowArgs<ExtArgs>>): Prisma__PomodoroSessionClient<$Result.GetResult<Prisma.$PomodoroSessionPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more PomodoroSessions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroSessionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PomodoroSessions
+     * const pomodoroSessions = await prisma.pomodoroSession.findMany()
+     * 
+     * // Get first 10 PomodoroSessions
+     * const pomodoroSessions = await prisma.pomodoroSession.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const pomodoroSessionWithIdOnly = await prisma.pomodoroSession.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PomodoroSessionFindManyArgs>(args?: SelectSubset<T, PomodoroSessionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PomodoroSessionPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a PomodoroSession.
+     * @param {PomodoroSessionCreateArgs} args - Arguments to create a PomodoroSession.
+     * @example
+     * // Create one PomodoroSession
+     * const PomodoroSession = await prisma.pomodoroSession.create({
+     *   data: {
+     *     // ... data to create a PomodoroSession
+     *   }
+     * })
+     * 
+     */
+    create<T extends PomodoroSessionCreateArgs>(args: SelectSubset<T, PomodoroSessionCreateArgs<ExtArgs>>): Prisma__PomodoroSessionClient<$Result.GetResult<Prisma.$PomodoroSessionPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many PomodoroSessions.
+     * @param {PomodoroSessionCreateManyArgs} args - Arguments to create many PomodoroSessions.
+     * @example
+     * // Create many PomodoroSessions
+     * const pomodoroSession = await prisma.pomodoroSession.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PomodoroSessionCreateManyArgs>(args?: SelectSubset<T, PomodoroSessionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PomodoroSessions and returns the data saved in the database.
+     * @param {PomodoroSessionCreateManyAndReturnArgs} args - Arguments to create many PomodoroSessions.
+     * @example
+     * // Create many PomodoroSessions
+     * const pomodoroSession = await prisma.pomodoroSession.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PomodoroSessions and only return the `id`
+     * const pomodoroSessionWithIdOnly = await prisma.pomodoroSession.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PomodoroSessionCreateManyAndReturnArgs>(args?: SelectSubset<T, PomodoroSessionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PomodoroSessionPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a PomodoroSession.
+     * @param {PomodoroSessionDeleteArgs} args - Arguments to delete one PomodoroSession.
+     * @example
+     * // Delete one PomodoroSession
+     * const PomodoroSession = await prisma.pomodoroSession.delete({
+     *   where: {
+     *     // ... filter to delete one PomodoroSession
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PomodoroSessionDeleteArgs>(args: SelectSubset<T, PomodoroSessionDeleteArgs<ExtArgs>>): Prisma__PomodoroSessionClient<$Result.GetResult<Prisma.$PomodoroSessionPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one PomodoroSession.
+     * @param {PomodoroSessionUpdateArgs} args - Arguments to update one PomodoroSession.
+     * @example
+     * // Update one PomodoroSession
+     * const pomodoroSession = await prisma.pomodoroSession.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PomodoroSessionUpdateArgs>(args: SelectSubset<T, PomodoroSessionUpdateArgs<ExtArgs>>): Prisma__PomodoroSessionClient<$Result.GetResult<Prisma.$PomodoroSessionPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more PomodoroSessions.
+     * @param {PomodoroSessionDeleteManyArgs} args - Arguments to filter PomodoroSessions to delete.
+     * @example
+     * // Delete a few PomodoroSessions
+     * const { count } = await prisma.pomodoroSession.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PomodoroSessionDeleteManyArgs>(args?: SelectSubset<T, PomodoroSessionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PomodoroSessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroSessionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PomodoroSessions
+     * const pomodoroSession = await prisma.pomodoroSession.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PomodoroSessionUpdateManyArgs>(args: SelectSubset<T, PomodoroSessionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one PomodoroSession.
+     * @param {PomodoroSessionUpsertArgs} args - Arguments to update or create a PomodoroSession.
+     * @example
+     * // Update or create a PomodoroSession
+     * const pomodoroSession = await prisma.pomodoroSession.upsert({
+     *   create: {
+     *     // ... data to create a PomodoroSession
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PomodoroSession we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PomodoroSessionUpsertArgs>(args: SelectSubset<T, PomodoroSessionUpsertArgs<ExtArgs>>): Prisma__PomodoroSessionClient<$Result.GetResult<Prisma.$PomodoroSessionPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of PomodoroSessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroSessionCountArgs} args - Arguments to filter PomodoroSessions to count.
+     * @example
+     * // Count the number of PomodoroSessions
+     * const count = await prisma.pomodoroSession.count({
+     *   where: {
+     *     // ... the filter for the PomodoroSessions we want to count
+     *   }
+     * })
+    **/
+    count<T extends PomodoroSessionCountArgs>(
+      args?: Subset<T, PomodoroSessionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PomodoroSessionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PomodoroSession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroSessionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PomodoroSessionAggregateArgs>(args: Subset<T, PomodoroSessionAggregateArgs>): Prisma.PrismaPromise<GetPomodoroSessionAggregateType<T>>
+
+    /**
+     * Group by PomodoroSession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroSessionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PomodoroSessionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PomodoroSessionGroupByArgs['orderBy'] }
+        : { orderBy?: PomodoroSessionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PomodoroSessionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPomodoroSessionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PomodoroSession model
+   */
+  readonly fields: PomodoroSessionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PomodoroSession.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PomodoroSessionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    rounds<T extends PomodoroSession$roundsArgs<ExtArgs> = {}>(args?: Subset<T, PomodoroSession$roundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PomodoroRoundPayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PomodoroSession model
+   */ 
+  interface PomodoroSessionFieldRefs {
+    readonly id: FieldRef<"PomodoroSession", 'String'>
+    readonly createdAt: FieldRef<"PomodoroSession", 'DateTime'>
+    readonly updatedAt: FieldRef<"PomodoroSession", 'DateTime'>
+    readonly isCompleted: FieldRef<"PomodoroSession", 'Boolean'>
+    readonly userId: FieldRef<"PomodoroSession", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PomodoroSession findUnique
+   */
+  export type PomodoroSessionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroSession
+     */
+    select?: PomodoroSessionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which PomodoroSession to fetch.
+     */
+    where: PomodoroSessionWhereUniqueInput
+  }
+
+  /**
+   * PomodoroSession findUniqueOrThrow
+   */
+  export type PomodoroSessionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroSession
+     */
+    select?: PomodoroSessionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which PomodoroSession to fetch.
+     */
+    where: PomodoroSessionWhereUniqueInput
+  }
+
+  /**
+   * PomodoroSession findFirst
+   */
+  export type PomodoroSessionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroSession
+     */
+    select?: PomodoroSessionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which PomodoroSession to fetch.
+     */
+    where?: PomodoroSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PomodoroSessions to fetch.
+     */
+    orderBy?: PomodoroSessionOrderByWithRelationInput | PomodoroSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PomodoroSessions.
+     */
+    cursor?: PomodoroSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PomodoroSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PomodoroSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PomodoroSessions.
+     */
+    distinct?: PomodoroSessionScalarFieldEnum | PomodoroSessionScalarFieldEnum[]
+  }
+
+  /**
+   * PomodoroSession findFirstOrThrow
+   */
+  export type PomodoroSessionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroSession
+     */
+    select?: PomodoroSessionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which PomodoroSession to fetch.
+     */
+    where?: PomodoroSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PomodoroSessions to fetch.
+     */
+    orderBy?: PomodoroSessionOrderByWithRelationInput | PomodoroSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PomodoroSessions.
+     */
+    cursor?: PomodoroSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PomodoroSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PomodoroSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PomodoroSessions.
+     */
+    distinct?: PomodoroSessionScalarFieldEnum | PomodoroSessionScalarFieldEnum[]
+  }
+
+  /**
+   * PomodoroSession findMany
+   */
+  export type PomodoroSessionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroSession
+     */
+    select?: PomodoroSessionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which PomodoroSessions to fetch.
+     */
+    where?: PomodoroSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PomodoroSessions to fetch.
+     */
+    orderBy?: PomodoroSessionOrderByWithRelationInput | PomodoroSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PomodoroSessions.
+     */
+    cursor?: PomodoroSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PomodoroSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PomodoroSessions.
+     */
+    skip?: number
+    distinct?: PomodoroSessionScalarFieldEnum | PomodoroSessionScalarFieldEnum[]
+  }
+
+  /**
+   * PomodoroSession create
+   */
+  export type PomodoroSessionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroSession
+     */
+    select?: PomodoroSessionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroSessionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PomodoroSession.
+     */
+    data: XOR<PomodoroSessionCreateInput, PomodoroSessionUncheckedCreateInput>
+  }
+
+  /**
+   * PomodoroSession createMany
+   */
+  export type PomodoroSessionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PomodoroSessions.
+     */
+    data: PomodoroSessionCreateManyInput | PomodoroSessionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PomodoroSession createManyAndReturn
+   */
+  export type PomodoroSessionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroSession
+     */
+    select?: PomodoroSessionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many PomodoroSessions.
+     */
+    data: PomodoroSessionCreateManyInput | PomodoroSessionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroSessionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PomodoroSession update
+   */
+  export type PomodoroSessionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroSession
+     */
+    select?: PomodoroSessionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroSessionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PomodoroSession.
+     */
+    data: XOR<PomodoroSessionUpdateInput, PomodoroSessionUncheckedUpdateInput>
+    /**
+     * Choose, which PomodoroSession to update.
+     */
+    where: PomodoroSessionWhereUniqueInput
+  }
+
+  /**
+   * PomodoroSession updateMany
+   */
+  export type PomodoroSessionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PomodoroSessions.
+     */
+    data: XOR<PomodoroSessionUpdateManyMutationInput, PomodoroSessionUncheckedUpdateManyInput>
+    /**
+     * Filter which PomodoroSessions to update
+     */
+    where?: PomodoroSessionWhereInput
+  }
+
+  /**
+   * PomodoroSession upsert
+   */
+  export type PomodoroSessionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroSession
+     */
+    select?: PomodoroSessionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroSessionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PomodoroSession to update in case it exists.
+     */
+    where: PomodoroSessionWhereUniqueInput
+    /**
+     * In case the PomodoroSession found by the `where` argument doesn't exist, create a new PomodoroSession with this data.
+     */
+    create: XOR<PomodoroSessionCreateInput, PomodoroSessionUncheckedCreateInput>
+    /**
+     * In case the PomodoroSession was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PomodoroSessionUpdateInput, PomodoroSessionUncheckedUpdateInput>
+  }
+
+  /**
+   * PomodoroSession delete
+   */
+  export type PomodoroSessionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroSession
+     */
+    select?: PomodoroSessionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroSessionInclude<ExtArgs> | null
+    /**
+     * Filter which PomodoroSession to delete.
+     */
+    where: PomodoroSessionWhereUniqueInput
+  }
+
+  /**
+   * PomodoroSession deleteMany
+   */
+  export type PomodoroSessionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PomodoroSessions to delete
+     */
+    where?: PomodoroSessionWhereInput
+  }
+
+  /**
+   * PomodoroSession.rounds
+   */
+  export type PomodoroSession$roundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroRound
+     */
+    select?: PomodoroRoundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroRoundInclude<ExtArgs> | null
+    where?: PomodoroRoundWhereInput
+    orderBy?: PomodoroRoundOrderByWithRelationInput | PomodoroRoundOrderByWithRelationInput[]
+    cursor?: PomodoroRoundWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PomodoroRoundScalarFieldEnum | PomodoroRoundScalarFieldEnum[]
+  }
+
+  /**
+   * PomodoroSession without action
+   */
+  export type PomodoroSessionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroSession
+     */
+    select?: PomodoroSessionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroSessionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PomodoroRound
+   */
+
+  export type AggregatePomodoroRound = {
+    _count: PomodoroRoundCountAggregateOutputType | null
+    _avg: PomodoroRoundAvgAggregateOutputType | null
+    _sum: PomodoroRoundSumAggregateOutputType | null
+    _min: PomodoroRoundMinAggregateOutputType | null
+    _max: PomodoroRoundMaxAggregateOutputType | null
+  }
+
+  export type PomodoroRoundAvgAggregateOutputType = {
+    totalSeconds: number | null
+  }
+
+  export type PomodoroRoundSumAggregateOutputType = {
+    totalSeconds: number | null
+  }
+
+  export type PomodoroRoundMinAggregateOutputType = {
+    id: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    totalSeconds: number | null
+    isCompleted: boolean | null
+    pomodoroSessionId: string | null
+  }
+
+  export type PomodoroRoundMaxAggregateOutputType = {
+    id: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    totalSeconds: number | null
+    isCompleted: boolean | null
+    pomodoroSessionId: string | null
+  }
+
+  export type PomodoroRoundCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    updatedAt: number
+    totalSeconds: number
+    isCompleted: number
+    pomodoroSessionId: number
+    _all: number
+  }
+
+
+  export type PomodoroRoundAvgAggregateInputType = {
+    totalSeconds?: true
+  }
+
+  export type PomodoroRoundSumAggregateInputType = {
+    totalSeconds?: true
+  }
+
+  export type PomodoroRoundMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    updatedAt?: true
+    totalSeconds?: true
+    isCompleted?: true
+    pomodoroSessionId?: true
+  }
+
+  export type PomodoroRoundMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    updatedAt?: true
+    totalSeconds?: true
+    isCompleted?: true
+    pomodoroSessionId?: true
+  }
+
+  export type PomodoroRoundCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    updatedAt?: true
+    totalSeconds?: true
+    isCompleted?: true
+    pomodoroSessionId?: true
+    _all?: true
+  }
+
+  export type PomodoroRoundAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PomodoroRound to aggregate.
+     */
+    where?: PomodoroRoundWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PomodoroRounds to fetch.
+     */
+    orderBy?: PomodoroRoundOrderByWithRelationInput | PomodoroRoundOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PomodoroRoundWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PomodoroRounds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PomodoroRounds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PomodoroRounds
+    **/
+    _count?: true | PomodoroRoundCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PomodoroRoundAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PomodoroRoundSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PomodoroRoundMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PomodoroRoundMaxAggregateInputType
+  }
+
+  export type GetPomodoroRoundAggregateType<T extends PomodoroRoundAggregateArgs> = {
+        [P in keyof T & keyof AggregatePomodoroRound]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePomodoroRound[P]>
+      : GetScalarType<T[P], AggregatePomodoroRound[P]>
+  }
+
+
+
+
+  export type PomodoroRoundGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PomodoroRoundWhereInput
+    orderBy?: PomodoroRoundOrderByWithAggregationInput | PomodoroRoundOrderByWithAggregationInput[]
+    by: PomodoroRoundScalarFieldEnum[] | PomodoroRoundScalarFieldEnum
+    having?: PomodoroRoundScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PomodoroRoundCountAggregateInputType | true
+    _avg?: PomodoroRoundAvgAggregateInputType
+    _sum?: PomodoroRoundSumAggregateInputType
+    _min?: PomodoroRoundMinAggregateInputType
+    _max?: PomodoroRoundMaxAggregateInputType
+  }
+
+  export type PomodoroRoundGroupByOutputType = {
+    id: string
+    createdAt: Date
+    updatedAt: Date
+    totalSeconds: number
+    isCompleted: boolean | null
+    pomodoroSessionId: string
+    _count: PomodoroRoundCountAggregateOutputType | null
+    _avg: PomodoroRoundAvgAggregateOutputType | null
+    _sum: PomodoroRoundSumAggregateOutputType | null
+    _min: PomodoroRoundMinAggregateOutputType | null
+    _max: PomodoroRoundMaxAggregateOutputType | null
+  }
+
+  type GetPomodoroRoundGroupByPayload<T extends PomodoroRoundGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PomodoroRoundGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PomodoroRoundGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PomodoroRoundGroupByOutputType[P]>
+            : GetScalarType<T[P], PomodoroRoundGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PomodoroRoundSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    totalSeconds?: boolean
+    isCompleted?: boolean
+    pomodoroSessionId?: boolean
+    pomodoroSession?: boolean | PomodoroSessionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pomodoroRound"]>
+
+  export type PomodoroRoundSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    totalSeconds?: boolean
+    isCompleted?: boolean
+    pomodoroSessionId?: boolean
+    pomodoroSession?: boolean | PomodoroSessionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pomodoroRound"]>
+
+  export type PomodoroRoundSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    totalSeconds?: boolean
+    isCompleted?: boolean
+    pomodoroSessionId?: boolean
+  }
+
+  export type PomodoroRoundInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    pomodoroSession?: boolean | PomodoroSessionDefaultArgs<ExtArgs>
+  }
+  export type PomodoroRoundIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    pomodoroSession?: boolean | PomodoroSessionDefaultArgs<ExtArgs>
+  }
+
+  export type $PomodoroRoundPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PomodoroRound"
+    objects: {
+      pomodoroSession: Prisma.$PomodoroSessionPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      createdAt: Date
+      updatedAt: Date
+      totalSeconds: number
+      isCompleted: boolean | null
+      pomodoroSessionId: string
+    }, ExtArgs["result"]["pomodoroRound"]>
+    composites: {}
+  }
+
+  type PomodoroRoundGetPayload<S extends boolean | null | undefined | PomodoroRoundDefaultArgs> = $Result.GetResult<Prisma.$PomodoroRoundPayload, S>
+
+  type PomodoroRoundCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<PomodoroRoundFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: PomodoroRoundCountAggregateInputType | true
+    }
+
+  export interface PomodoroRoundDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PomodoroRound'], meta: { name: 'PomodoroRound' } }
+    /**
+     * Find zero or one PomodoroRound that matches the filter.
+     * @param {PomodoroRoundFindUniqueArgs} args - Arguments to find a PomodoroRound
+     * @example
+     * // Get one PomodoroRound
+     * const pomodoroRound = await prisma.pomodoroRound.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PomodoroRoundFindUniqueArgs>(args: SelectSubset<T, PomodoroRoundFindUniqueArgs<ExtArgs>>): Prisma__PomodoroRoundClient<$Result.GetResult<Prisma.$PomodoroRoundPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one PomodoroRound that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {PomodoroRoundFindUniqueOrThrowArgs} args - Arguments to find a PomodoroRound
+     * @example
+     * // Get one PomodoroRound
+     * const pomodoroRound = await prisma.pomodoroRound.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PomodoroRoundFindUniqueOrThrowArgs>(args: SelectSubset<T, PomodoroRoundFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PomodoroRoundClient<$Result.GetResult<Prisma.$PomodoroRoundPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first PomodoroRound that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroRoundFindFirstArgs} args - Arguments to find a PomodoroRound
+     * @example
+     * // Get one PomodoroRound
+     * const pomodoroRound = await prisma.pomodoroRound.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PomodoroRoundFindFirstArgs>(args?: SelectSubset<T, PomodoroRoundFindFirstArgs<ExtArgs>>): Prisma__PomodoroRoundClient<$Result.GetResult<Prisma.$PomodoroRoundPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first PomodoroRound that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroRoundFindFirstOrThrowArgs} args - Arguments to find a PomodoroRound
+     * @example
+     * // Get one PomodoroRound
+     * const pomodoroRound = await prisma.pomodoroRound.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PomodoroRoundFindFirstOrThrowArgs>(args?: SelectSubset<T, PomodoroRoundFindFirstOrThrowArgs<ExtArgs>>): Prisma__PomodoroRoundClient<$Result.GetResult<Prisma.$PomodoroRoundPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more PomodoroRounds that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroRoundFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PomodoroRounds
+     * const pomodoroRounds = await prisma.pomodoroRound.findMany()
+     * 
+     * // Get first 10 PomodoroRounds
+     * const pomodoroRounds = await prisma.pomodoroRound.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const pomodoroRoundWithIdOnly = await prisma.pomodoroRound.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PomodoroRoundFindManyArgs>(args?: SelectSubset<T, PomodoroRoundFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PomodoroRoundPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a PomodoroRound.
+     * @param {PomodoroRoundCreateArgs} args - Arguments to create a PomodoroRound.
+     * @example
+     * // Create one PomodoroRound
+     * const PomodoroRound = await prisma.pomodoroRound.create({
+     *   data: {
+     *     // ... data to create a PomodoroRound
+     *   }
+     * })
+     * 
+     */
+    create<T extends PomodoroRoundCreateArgs>(args: SelectSubset<T, PomodoroRoundCreateArgs<ExtArgs>>): Prisma__PomodoroRoundClient<$Result.GetResult<Prisma.$PomodoroRoundPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many PomodoroRounds.
+     * @param {PomodoroRoundCreateManyArgs} args - Arguments to create many PomodoroRounds.
+     * @example
+     * // Create many PomodoroRounds
+     * const pomodoroRound = await prisma.pomodoroRound.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PomodoroRoundCreateManyArgs>(args?: SelectSubset<T, PomodoroRoundCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PomodoroRounds and returns the data saved in the database.
+     * @param {PomodoroRoundCreateManyAndReturnArgs} args - Arguments to create many PomodoroRounds.
+     * @example
+     * // Create many PomodoroRounds
+     * const pomodoroRound = await prisma.pomodoroRound.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PomodoroRounds and only return the `id`
+     * const pomodoroRoundWithIdOnly = await prisma.pomodoroRound.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PomodoroRoundCreateManyAndReturnArgs>(args?: SelectSubset<T, PomodoroRoundCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PomodoroRoundPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a PomodoroRound.
+     * @param {PomodoroRoundDeleteArgs} args - Arguments to delete one PomodoroRound.
+     * @example
+     * // Delete one PomodoroRound
+     * const PomodoroRound = await prisma.pomodoroRound.delete({
+     *   where: {
+     *     // ... filter to delete one PomodoroRound
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PomodoroRoundDeleteArgs>(args: SelectSubset<T, PomodoroRoundDeleteArgs<ExtArgs>>): Prisma__PomodoroRoundClient<$Result.GetResult<Prisma.$PomodoroRoundPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one PomodoroRound.
+     * @param {PomodoroRoundUpdateArgs} args - Arguments to update one PomodoroRound.
+     * @example
+     * // Update one PomodoroRound
+     * const pomodoroRound = await prisma.pomodoroRound.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PomodoroRoundUpdateArgs>(args: SelectSubset<T, PomodoroRoundUpdateArgs<ExtArgs>>): Prisma__PomodoroRoundClient<$Result.GetResult<Prisma.$PomodoroRoundPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more PomodoroRounds.
+     * @param {PomodoroRoundDeleteManyArgs} args - Arguments to filter PomodoroRounds to delete.
+     * @example
+     * // Delete a few PomodoroRounds
+     * const { count } = await prisma.pomodoroRound.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PomodoroRoundDeleteManyArgs>(args?: SelectSubset<T, PomodoroRoundDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PomodoroRounds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroRoundUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PomodoroRounds
+     * const pomodoroRound = await prisma.pomodoroRound.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PomodoroRoundUpdateManyArgs>(args: SelectSubset<T, PomodoroRoundUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one PomodoroRound.
+     * @param {PomodoroRoundUpsertArgs} args - Arguments to update or create a PomodoroRound.
+     * @example
+     * // Update or create a PomodoroRound
+     * const pomodoroRound = await prisma.pomodoroRound.upsert({
+     *   create: {
+     *     // ... data to create a PomodoroRound
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PomodoroRound we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PomodoroRoundUpsertArgs>(args: SelectSubset<T, PomodoroRoundUpsertArgs<ExtArgs>>): Prisma__PomodoroRoundClient<$Result.GetResult<Prisma.$PomodoroRoundPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of PomodoroRounds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroRoundCountArgs} args - Arguments to filter PomodoroRounds to count.
+     * @example
+     * // Count the number of PomodoroRounds
+     * const count = await prisma.pomodoroRound.count({
+     *   where: {
+     *     // ... the filter for the PomodoroRounds we want to count
+     *   }
+     * })
+    **/
+    count<T extends PomodoroRoundCountArgs>(
+      args?: Subset<T, PomodoroRoundCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PomodoroRoundCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PomodoroRound.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroRoundAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PomodoroRoundAggregateArgs>(args: Subset<T, PomodoroRoundAggregateArgs>): Prisma.PrismaPromise<GetPomodoroRoundAggregateType<T>>
+
+    /**
+     * Group by PomodoroRound.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PomodoroRoundGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PomodoroRoundGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PomodoroRoundGroupByArgs['orderBy'] }
+        : { orderBy?: PomodoroRoundGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PomodoroRoundGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPomodoroRoundGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PomodoroRound model
+   */
+  readonly fields: PomodoroRoundFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PomodoroRound.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PomodoroRoundClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    pomodoroSession<T extends PomodoroSessionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PomodoroSessionDefaultArgs<ExtArgs>>): Prisma__PomodoroSessionClient<$Result.GetResult<Prisma.$PomodoroSessionPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PomodoroRound model
+   */ 
+  interface PomodoroRoundFieldRefs {
+    readonly id: FieldRef<"PomodoroRound", 'String'>
+    readonly createdAt: FieldRef<"PomodoroRound", 'DateTime'>
+    readonly updatedAt: FieldRef<"PomodoroRound", 'DateTime'>
+    readonly totalSeconds: FieldRef<"PomodoroRound", 'Int'>
+    readonly isCompleted: FieldRef<"PomodoroRound", 'Boolean'>
+    readonly pomodoroSessionId: FieldRef<"PomodoroRound", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PomodoroRound findUnique
+   */
+  export type PomodoroRoundFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroRound
+     */
+    select?: PomodoroRoundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroRoundInclude<ExtArgs> | null
+    /**
+     * Filter, which PomodoroRound to fetch.
+     */
+    where: PomodoroRoundWhereUniqueInput
+  }
+
+  /**
+   * PomodoroRound findUniqueOrThrow
+   */
+  export type PomodoroRoundFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroRound
+     */
+    select?: PomodoroRoundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroRoundInclude<ExtArgs> | null
+    /**
+     * Filter, which PomodoroRound to fetch.
+     */
+    where: PomodoroRoundWhereUniqueInput
+  }
+
+  /**
+   * PomodoroRound findFirst
+   */
+  export type PomodoroRoundFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroRound
+     */
+    select?: PomodoroRoundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroRoundInclude<ExtArgs> | null
+    /**
+     * Filter, which PomodoroRound to fetch.
+     */
+    where?: PomodoroRoundWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PomodoroRounds to fetch.
+     */
+    orderBy?: PomodoroRoundOrderByWithRelationInput | PomodoroRoundOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PomodoroRounds.
+     */
+    cursor?: PomodoroRoundWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PomodoroRounds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PomodoroRounds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PomodoroRounds.
+     */
+    distinct?: PomodoroRoundScalarFieldEnum | PomodoroRoundScalarFieldEnum[]
+  }
+
+  /**
+   * PomodoroRound findFirstOrThrow
+   */
+  export type PomodoroRoundFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroRound
+     */
+    select?: PomodoroRoundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroRoundInclude<ExtArgs> | null
+    /**
+     * Filter, which PomodoroRound to fetch.
+     */
+    where?: PomodoroRoundWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PomodoroRounds to fetch.
+     */
+    orderBy?: PomodoroRoundOrderByWithRelationInput | PomodoroRoundOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PomodoroRounds.
+     */
+    cursor?: PomodoroRoundWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PomodoroRounds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PomodoroRounds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PomodoroRounds.
+     */
+    distinct?: PomodoroRoundScalarFieldEnum | PomodoroRoundScalarFieldEnum[]
+  }
+
+  /**
+   * PomodoroRound findMany
+   */
+  export type PomodoroRoundFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroRound
+     */
+    select?: PomodoroRoundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroRoundInclude<ExtArgs> | null
+    /**
+     * Filter, which PomodoroRounds to fetch.
+     */
+    where?: PomodoroRoundWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PomodoroRounds to fetch.
+     */
+    orderBy?: PomodoroRoundOrderByWithRelationInput | PomodoroRoundOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PomodoroRounds.
+     */
+    cursor?: PomodoroRoundWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PomodoroRounds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PomodoroRounds.
+     */
+    skip?: number
+    distinct?: PomodoroRoundScalarFieldEnum | PomodoroRoundScalarFieldEnum[]
+  }
+
+  /**
+   * PomodoroRound create
+   */
+  export type PomodoroRoundCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroRound
+     */
+    select?: PomodoroRoundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroRoundInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PomodoroRound.
+     */
+    data: XOR<PomodoroRoundCreateInput, PomodoroRoundUncheckedCreateInput>
+  }
+
+  /**
+   * PomodoroRound createMany
+   */
+  export type PomodoroRoundCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PomodoroRounds.
+     */
+    data: PomodoroRoundCreateManyInput | PomodoroRoundCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PomodoroRound createManyAndReturn
+   */
+  export type PomodoroRoundCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroRound
+     */
+    select?: PomodoroRoundSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many PomodoroRounds.
+     */
+    data: PomodoroRoundCreateManyInput | PomodoroRoundCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroRoundIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PomodoroRound update
+   */
+  export type PomodoroRoundUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroRound
+     */
+    select?: PomodoroRoundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroRoundInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PomodoroRound.
+     */
+    data: XOR<PomodoroRoundUpdateInput, PomodoroRoundUncheckedUpdateInput>
+    /**
+     * Choose, which PomodoroRound to update.
+     */
+    where: PomodoroRoundWhereUniqueInput
+  }
+
+  /**
+   * PomodoroRound updateMany
+   */
+  export type PomodoroRoundUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PomodoroRounds.
+     */
+    data: XOR<PomodoroRoundUpdateManyMutationInput, PomodoroRoundUncheckedUpdateManyInput>
+    /**
+     * Filter which PomodoroRounds to update
+     */
+    where?: PomodoroRoundWhereInput
+  }
+
+  /**
+   * PomodoroRound upsert
+   */
+  export type PomodoroRoundUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroRound
+     */
+    select?: PomodoroRoundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroRoundInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PomodoroRound to update in case it exists.
+     */
+    where: PomodoroRoundWhereUniqueInput
+    /**
+     * In case the PomodoroRound found by the `where` argument doesn't exist, create a new PomodoroRound with this data.
+     */
+    create: XOR<PomodoroRoundCreateInput, PomodoroRoundUncheckedCreateInput>
+    /**
+     * In case the PomodoroRound was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PomodoroRoundUpdateInput, PomodoroRoundUncheckedUpdateInput>
+  }
+
+  /**
+   * PomodoroRound delete
+   */
+  export type PomodoroRoundDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroRound
+     */
+    select?: PomodoroRoundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroRoundInclude<ExtArgs> | null
+    /**
+     * Filter which PomodoroRound to delete.
+     */
+    where: PomodoroRoundWhereUniqueInput
+  }
+
+  /**
+   * PomodoroRound deleteMany
+   */
+  export type PomodoroRoundDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PomodoroRounds to delete
+     */
+    where?: PomodoroRoundWhereInput
+  }
+
+  /**
+   * PomodoroRound without action
+   */
+  export type PomodoroRoundDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PomodoroRound
+     */
+    select?: PomodoroRoundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PomodoroRoundInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -4200,6 +6374,29 @@ export namespace Prisma {
   };
 
   export type TimeBlockScalarFieldEnum = (typeof TimeBlockScalarFieldEnum)[keyof typeof TimeBlockScalarFieldEnum]
+
+
+  export const PomodoroSessionScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    isCompleted: 'isCompleted',
+    userId: 'userId'
+  };
+
+  export type PomodoroSessionScalarFieldEnum = (typeof PomodoroSessionScalarFieldEnum)[keyof typeof PomodoroSessionScalarFieldEnum]
+
+
+  export const PomodoroRoundScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    totalSeconds: 'totalSeconds',
+    isCompleted: 'isCompleted',
+    pomodoroSessionId: 'pomodoroSessionId'
+  };
+
+  export type PomodoroRoundScalarFieldEnum = (typeof PomodoroRoundScalarFieldEnum)[keyof typeof PomodoroRoundScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4327,6 +6524,7 @@ export namespace Prisma {
     workInterval?: IntNullableFilter<"User"> | number | null
     tasks?: TaskListRelationFilter
     TimeBlocks?: TimeBlockListRelationFilter
+    pomodoroSessions?: PomodoroSessionListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -4342,6 +6540,7 @@ export namespace Prisma {
     workInterval?: SortOrderInput | SortOrder
     tasks?: TaskOrderByRelationAggregateInput
     TimeBlocks?: TimeBlockOrderByRelationAggregateInput
+    pomodoroSessions?: PomodoroSessionOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -4360,6 +6559,7 @@ export namespace Prisma {
     workInterval?: IntNullableFilter<"User"> | number | null
     tasks?: TaskListRelationFilter
     TimeBlocks?: TimeBlockListRelationFilter
+    pomodoroSessions?: PomodoroSessionListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -4533,6 +6733,126 @@ export namespace Prisma {
     userId?: StringWithAggregatesFilter<"TimeBlock"> | string
   }
 
+  export type PomodoroSessionWhereInput = {
+    AND?: PomodoroSessionWhereInput | PomodoroSessionWhereInput[]
+    OR?: PomodoroSessionWhereInput[]
+    NOT?: PomodoroSessionWhereInput | PomodoroSessionWhereInput[]
+    id?: StringFilter<"PomodoroSession"> | string
+    createdAt?: DateTimeFilter<"PomodoroSession"> | Date | string
+    updatedAt?: DateTimeFilter<"PomodoroSession"> | Date | string
+    isCompleted?: BoolNullableFilter<"PomodoroSession"> | boolean | null
+    userId?: StringFilter<"PomodoroSession"> | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    rounds?: PomodoroRoundListRelationFilter
+  }
+
+  export type PomodoroSessionOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    isCompleted?: SortOrderInput | SortOrder
+    userId?: SortOrder
+    user?: UserOrderByWithRelationInput
+    rounds?: PomodoroRoundOrderByRelationAggregateInput
+  }
+
+  export type PomodoroSessionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PomodoroSessionWhereInput | PomodoroSessionWhereInput[]
+    OR?: PomodoroSessionWhereInput[]
+    NOT?: PomodoroSessionWhereInput | PomodoroSessionWhereInput[]
+    createdAt?: DateTimeFilter<"PomodoroSession"> | Date | string
+    updatedAt?: DateTimeFilter<"PomodoroSession"> | Date | string
+    isCompleted?: BoolNullableFilter<"PomodoroSession"> | boolean | null
+    userId?: StringFilter<"PomodoroSession"> | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    rounds?: PomodoroRoundListRelationFilter
+  }, "id">
+
+  export type PomodoroSessionOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    isCompleted?: SortOrderInput | SortOrder
+    userId?: SortOrder
+    _count?: PomodoroSessionCountOrderByAggregateInput
+    _max?: PomodoroSessionMaxOrderByAggregateInput
+    _min?: PomodoroSessionMinOrderByAggregateInput
+  }
+
+  export type PomodoroSessionScalarWhereWithAggregatesInput = {
+    AND?: PomodoroSessionScalarWhereWithAggregatesInput | PomodoroSessionScalarWhereWithAggregatesInput[]
+    OR?: PomodoroSessionScalarWhereWithAggregatesInput[]
+    NOT?: PomodoroSessionScalarWhereWithAggregatesInput | PomodoroSessionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PomodoroSession"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"PomodoroSession"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PomodoroSession"> | Date | string
+    isCompleted?: BoolNullableWithAggregatesFilter<"PomodoroSession"> | boolean | null
+    userId?: StringWithAggregatesFilter<"PomodoroSession"> | string
+  }
+
+  export type PomodoroRoundWhereInput = {
+    AND?: PomodoroRoundWhereInput | PomodoroRoundWhereInput[]
+    OR?: PomodoroRoundWhereInput[]
+    NOT?: PomodoroRoundWhereInput | PomodoroRoundWhereInput[]
+    id?: StringFilter<"PomodoroRound"> | string
+    createdAt?: DateTimeFilter<"PomodoroRound"> | Date | string
+    updatedAt?: DateTimeFilter<"PomodoroRound"> | Date | string
+    totalSeconds?: IntFilter<"PomodoroRound"> | number
+    isCompleted?: BoolNullableFilter<"PomodoroRound"> | boolean | null
+    pomodoroSessionId?: StringFilter<"PomodoroRound"> | string
+    pomodoroSession?: XOR<PomodoroSessionRelationFilter, PomodoroSessionWhereInput>
+  }
+
+  export type PomodoroRoundOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    totalSeconds?: SortOrder
+    isCompleted?: SortOrderInput | SortOrder
+    pomodoroSessionId?: SortOrder
+    pomodoroSession?: PomodoroSessionOrderByWithRelationInput
+  }
+
+  export type PomodoroRoundWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PomodoroRoundWhereInput | PomodoroRoundWhereInput[]
+    OR?: PomodoroRoundWhereInput[]
+    NOT?: PomodoroRoundWhereInput | PomodoroRoundWhereInput[]
+    createdAt?: DateTimeFilter<"PomodoroRound"> | Date | string
+    updatedAt?: DateTimeFilter<"PomodoroRound"> | Date | string
+    totalSeconds?: IntFilter<"PomodoroRound"> | number
+    isCompleted?: BoolNullableFilter<"PomodoroRound"> | boolean | null
+    pomodoroSessionId?: StringFilter<"PomodoroRound"> | string
+    pomodoroSession?: XOR<PomodoroSessionRelationFilter, PomodoroSessionWhereInput>
+  }, "id">
+
+  export type PomodoroRoundOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    totalSeconds?: SortOrder
+    isCompleted?: SortOrderInput | SortOrder
+    pomodoroSessionId?: SortOrder
+    _count?: PomodoroRoundCountOrderByAggregateInput
+    _avg?: PomodoroRoundAvgOrderByAggregateInput
+    _max?: PomodoroRoundMaxOrderByAggregateInput
+    _min?: PomodoroRoundMinOrderByAggregateInput
+    _sum?: PomodoroRoundSumOrderByAggregateInput
+  }
+
+  export type PomodoroRoundScalarWhereWithAggregatesInput = {
+    AND?: PomodoroRoundScalarWhereWithAggregatesInput | PomodoroRoundScalarWhereWithAggregatesInput[]
+    OR?: PomodoroRoundScalarWhereWithAggregatesInput[]
+    NOT?: PomodoroRoundScalarWhereWithAggregatesInput | PomodoroRoundScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PomodoroRound"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"PomodoroRound"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PomodoroRound"> | Date | string
+    totalSeconds?: IntWithAggregatesFilter<"PomodoroRound"> | number
+    isCompleted?: BoolNullableWithAggregatesFilter<"PomodoroRound"> | boolean | null
+    pomodoroSessionId?: StringWithAggregatesFilter<"PomodoroRound"> | string
+  }
+
   export type UserCreateInput = {
     id?: string
     createdAt?: Date | string
@@ -4546,6 +6866,7 @@ export namespace Prisma {
     workInterval?: number | null
     tasks?: TaskCreateNestedManyWithoutUserInput
     TimeBlocks?: TimeBlockCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -4561,6 +6882,7 @@ export namespace Prisma {
     workInterval?: number | null
     tasks?: TaskUncheckedCreateNestedManyWithoutUserInput
     TimeBlocks?: TimeBlockUncheckedCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -4576,6 +6898,7 @@ export namespace Prisma {
     workInterval?: NullableIntFieldUpdateOperationsInput | number | null
     tasks?: TaskUpdateManyWithoutUserNestedInput
     TimeBlocks?: TimeBlockUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -4591,6 +6914,7 @@ export namespace Prisma {
     workInterval?: NullableIntFieldUpdateOperationsInput | number | null
     tasks?: TaskUncheckedUpdateManyWithoutUserNestedInput
     TimeBlocks?: TimeBlockUncheckedUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -4777,6 +7101,127 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
   }
 
+  export type PomodoroSessionCreateInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isCompleted?: boolean | null
+    user: UserCreateNestedOneWithoutPomodoroSessionsInput
+    rounds?: PomodoroRoundCreateNestedManyWithoutPomodoroSessionInput
+  }
+
+  export type PomodoroSessionUncheckedCreateInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isCompleted?: boolean | null
+    userId: string
+    rounds?: PomodoroRoundUncheckedCreateNestedManyWithoutPomodoroSessionInput
+  }
+
+  export type PomodoroSessionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    user?: UserUpdateOneRequiredWithoutPomodoroSessionsNestedInput
+    rounds?: PomodoroRoundUpdateManyWithoutPomodoroSessionNestedInput
+  }
+
+  export type PomodoroSessionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    userId?: StringFieldUpdateOperationsInput | string
+    rounds?: PomodoroRoundUncheckedUpdateManyWithoutPomodoroSessionNestedInput
+  }
+
+  export type PomodoroSessionCreateManyInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isCompleted?: boolean | null
+    userId: string
+  }
+
+  export type PomodoroSessionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type PomodoroSessionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PomodoroRoundCreateInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    totalSeconds: number
+    isCompleted?: boolean | null
+    pomodoroSession: PomodoroSessionCreateNestedOneWithoutRoundsInput
+  }
+
+  export type PomodoroRoundUncheckedCreateInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    totalSeconds: number
+    isCompleted?: boolean | null
+    pomodoroSessionId: string
+  }
+
+  export type PomodoroRoundUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSeconds?: IntFieldUpdateOperationsInput | number
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    pomodoroSession?: PomodoroSessionUpdateOneRequiredWithoutRoundsNestedInput
+  }
+
+  export type PomodoroRoundUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSeconds?: IntFieldUpdateOperationsInput | number
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    pomodoroSessionId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PomodoroRoundCreateManyInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    totalSeconds: number
+    isCompleted?: boolean | null
+    pomodoroSessionId: string
+  }
+
+  export type PomodoroRoundUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSeconds?: IntFieldUpdateOperationsInput | number
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type PomodoroRoundUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSeconds?: IntFieldUpdateOperationsInput | number
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    pomodoroSessionId?: StringFieldUpdateOperationsInput | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -4841,6 +7286,12 @@ export namespace Prisma {
     none?: TimeBlockWhereInput
   }
 
+  export type PomodoroSessionListRelationFilter = {
+    every?: PomodoroSessionWhereInput
+    some?: PomodoroSessionWhereInput
+    none?: PomodoroSessionWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -4851,6 +7302,10 @@ export namespace Prisma {
   }
 
   export type TimeBlockOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PomodoroSessionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -5106,6 +7561,80 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type PomodoroRoundListRelationFilter = {
+    every?: PomodoroRoundWhereInput
+    some?: PomodoroRoundWhereInput
+    none?: PomodoroRoundWhereInput
+  }
+
+  export type PomodoroRoundOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PomodoroSessionCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    isCompleted?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type PomodoroSessionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    isCompleted?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type PomodoroSessionMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    isCompleted?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type PomodoroSessionRelationFilter = {
+    is?: PomodoroSessionWhereInput
+    isNot?: PomodoroSessionWhereInput
+  }
+
+  export type PomodoroRoundCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    totalSeconds?: SortOrder
+    isCompleted?: SortOrder
+    pomodoroSessionId?: SortOrder
+  }
+
+  export type PomodoroRoundAvgOrderByAggregateInput = {
+    totalSeconds?: SortOrder
+  }
+
+  export type PomodoroRoundMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    totalSeconds?: SortOrder
+    isCompleted?: SortOrder
+    pomodoroSessionId?: SortOrder
+  }
+
+  export type PomodoroRoundMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    totalSeconds?: SortOrder
+    isCompleted?: SortOrder
+    pomodoroSessionId?: SortOrder
+  }
+
+  export type PomodoroRoundSumOrderByAggregateInput = {
+    totalSeconds?: SortOrder
+  }
+
   export type TaskCreateNestedManyWithoutUserInput = {
     create?: XOR<TaskCreateWithoutUserInput, TaskUncheckedCreateWithoutUserInput> | TaskCreateWithoutUserInput[] | TaskUncheckedCreateWithoutUserInput[]
     connectOrCreate?: TaskCreateOrConnectWithoutUserInput | TaskCreateOrConnectWithoutUserInput[]
@@ -5120,6 +7649,13 @@ export namespace Prisma {
     connect?: TimeBlockWhereUniqueInput | TimeBlockWhereUniqueInput[]
   }
 
+  export type PomodoroSessionCreateNestedManyWithoutUserInput = {
+    create?: XOR<PomodoroSessionCreateWithoutUserInput, PomodoroSessionUncheckedCreateWithoutUserInput> | PomodoroSessionCreateWithoutUserInput[] | PomodoroSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PomodoroSessionCreateOrConnectWithoutUserInput | PomodoroSessionCreateOrConnectWithoutUserInput[]
+    createMany?: PomodoroSessionCreateManyUserInputEnvelope
+    connect?: PomodoroSessionWhereUniqueInput | PomodoroSessionWhereUniqueInput[]
+  }
+
   export type TaskUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<TaskCreateWithoutUserInput, TaskUncheckedCreateWithoutUserInput> | TaskCreateWithoutUserInput[] | TaskUncheckedCreateWithoutUserInput[]
     connectOrCreate?: TaskCreateOrConnectWithoutUserInput | TaskCreateOrConnectWithoutUserInput[]
@@ -5132,6 +7668,13 @@ export namespace Prisma {
     connectOrCreate?: TimeBlockCreateOrConnectWithoutUserInput | TimeBlockCreateOrConnectWithoutUserInput[]
     createMany?: TimeBlockCreateManyUserInputEnvelope
     connect?: TimeBlockWhereUniqueInput | TimeBlockWhereUniqueInput[]
+  }
+
+  export type PomodoroSessionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PomodoroSessionCreateWithoutUserInput, PomodoroSessionUncheckedCreateWithoutUserInput> | PomodoroSessionCreateWithoutUserInput[] | PomodoroSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PomodoroSessionCreateOrConnectWithoutUserInput | PomodoroSessionCreateOrConnectWithoutUserInput[]
+    createMany?: PomodoroSessionCreateManyUserInputEnvelope
+    connect?: PomodoroSessionWhereUniqueInput | PomodoroSessionWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -5182,6 +7725,20 @@ export namespace Prisma {
     deleteMany?: TimeBlockScalarWhereInput | TimeBlockScalarWhereInput[]
   }
 
+  export type PomodoroSessionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PomodoroSessionCreateWithoutUserInput, PomodoroSessionUncheckedCreateWithoutUserInput> | PomodoroSessionCreateWithoutUserInput[] | PomodoroSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PomodoroSessionCreateOrConnectWithoutUserInput | PomodoroSessionCreateOrConnectWithoutUserInput[]
+    upsert?: PomodoroSessionUpsertWithWhereUniqueWithoutUserInput | PomodoroSessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PomodoroSessionCreateManyUserInputEnvelope
+    set?: PomodoroSessionWhereUniqueInput | PomodoroSessionWhereUniqueInput[]
+    disconnect?: PomodoroSessionWhereUniqueInput | PomodoroSessionWhereUniqueInput[]
+    delete?: PomodoroSessionWhereUniqueInput | PomodoroSessionWhereUniqueInput[]
+    connect?: PomodoroSessionWhereUniqueInput | PomodoroSessionWhereUniqueInput[]
+    update?: PomodoroSessionUpdateWithWhereUniqueWithoutUserInput | PomodoroSessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PomodoroSessionUpdateManyWithWhereWithoutUserInput | PomodoroSessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PomodoroSessionScalarWhereInput | PomodoroSessionScalarWhereInput[]
+  }
+
   export type TaskUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<TaskCreateWithoutUserInput, TaskUncheckedCreateWithoutUserInput> | TaskCreateWithoutUserInput[] | TaskUncheckedCreateWithoutUserInput[]
     connectOrCreate?: TaskCreateOrConnectWithoutUserInput | TaskCreateOrConnectWithoutUserInput[]
@@ -5208,6 +7765,20 @@ export namespace Prisma {
     update?: TimeBlockUpdateWithWhereUniqueWithoutUserInput | TimeBlockUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: TimeBlockUpdateManyWithWhereWithoutUserInput | TimeBlockUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: TimeBlockScalarWhereInput | TimeBlockScalarWhereInput[]
+  }
+
+  export type PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PomodoroSessionCreateWithoutUserInput, PomodoroSessionUncheckedCreateWithoutUserInput> | PomodoroSessionCreateWithoutUserInput[] | PomodoroSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PomodoroSessionCreateOrConnectWithoutUserInput | PomodoroSessionCreateOrConnectWithoutUserInput[]
+    upsert?: PomodoroSessionUpsertWithWhereUniqueWithoutUserInput | PomodoroSessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PomodoroSessionCreateManyUserInputEnvelope
+    set?: PomodoroSessionWhereUniqueInput | PomodoroSessionWhereUniqueInput[]
+    disconnect?: PomodoroSessionWhereUniqueInput | PomodoroSessionWhereUniqueInput[]
+    delete?: PomodoroSessionWhereUniqueInput | PomodoroSessionWhereUniqueInput[]
+    connect?: PomodoroSessionWhereUniqueInput | PomodoroSessionWhereUniqueInput[]
+    update?: PomodoroSessionUpdateWithWhereUniqueWithoutUserInput | PomodoroSessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PomodoroSessionUpdateManyWithWhereWithoutUserInput | PomodoroSessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PomodoroSessionScalarWhereInput | PomodoroSessionScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutTasksInput = {
@@ -5252,6 +7823,76 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutTimeBlocksInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutTimeBlocksInput, UserUpdateWithoutTimeBlocksInput>, UserUncheckedUpdateWithoutTimeBlocksInput>
+  }
+
+  export type UserCreateNestedOneWithoutPomodoroSessionsInput = {
+    create?: XOR<UserCreateWithoutPomodoroSessionsInput, UserUncheckedCreateWithoutPomodoroSessionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPomodoroSessionsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type PomodoroRoundCreateNestedManyWithoutPomodoroSessionInput = {
+    create?: XOR<PomodoroRoundCreateWithoutPomodoroSessionInput, PomodoroRoundUncheckedCreateWithoutPomodoroSessionInput> | PomodoroRoundCreateWithoutPomodoroSessionInput[] | PomodoroRoundUncheckedCreateWithoutPomodoroSessionInput[]
+    connectOrCreate?: PomodoroRoundCreateOrConnectWithoutPomodoroSessionInput | PomodoroRoundCreateOrConnectWithoutPomodoroSessionInput[]
+    createMany?: PomodoroRoundCreateManyPomodoroSessionInputEnvelope
+    connect?: PomodoroRoundWhereUniqueInput | PomodoroRoundWhereUniqueInput[]
+  }
+
+  export type PomodoroRoundUncheckedCreateNestedManyWithoutPomodoroSessionInput = {
+    create?: XOR<PomodoroRoundCreateWithoutPomodoroSessionInput, PomodoroRoundUncheckedCreateWithoutPomodoroSessionInput> | PomodoroRoundCreateWithoutPomodoroSessionInput[] | PomodoroRoundUncheckedCreateWithoutPomodoroSessionInput[]
+    connectOrCreate?: PomodoroRoundCreateOrConnectWithoutPomodoroSessionInput | PomodoroRoundCreateOrConnectWithoutPomodoroSessionInput[]
+    createMany?: PomodoroRoundCreateManyPomodoroSessionInputEnvelope
+    connect?: PomodoroRoundWhereUniqueInput | PomodoroRoundWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutPomodoroSessionsNestedInput = {
+    create?: XOR<UserCreateWithoutPomodoroSessionsInput, UserUncheckedCreateWithoutPomodoroSessionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPomodoroSessionsInput
+    upsert?: UserUpsertWithoutPomodoroSessionsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPomodoroSessionsInput, UserUpdateWithoutPomodoroSessionsInput>, UserUncheckedUpdateWithoutPomodoroSessionsInput>
+  }
+
+  export type PomodoroRoundUpdateManyWithoutPomodoroSessionNestedInput = {
+    create?: XOR<PomodoroRoundCreateWithoutPomodoroSessionInput, PomodoroRoundUncheckedCreateWithoutPomodoroSessionInput> | PomodoroRoundCreateWithoutPomodoroSessionInput[] | PomodoroRoundUncheckedCreateWithoutPomodoroSessionInput[]
+    connectOrCreate?: PomodoroRoundCreateOrConnectWithoutPomodoroSessionInput | PomodoroRoundCreateOrConnectWithoutPomodoroSessionInput[]
+    upsert?: PomodoroRoundUpsertWithWhereUniqueWithoutPomodoroSessionInput | PomodoroRoundUpsertWithWhereUniqueWithoutPomodoroSessionInput[]
+    createMany?: PomodoroRoundCreateManyPomodoroSessionInputEnvelope
+    set?: PomodoroRoundWhereUniqueInput | PomodoroRoundWhereUniqueInput[]
+    disconnect?: PomodoroRoundWhereUniqueInput | PomodoroRoundWhereUniqueInput[]
+    delete?: PomodoroRoundWhereUniqueInput | PomodoroRoundWhereUniqueInput[]
+    connect?: PomodoroRoundWhereUniqueInput | PomodoroRoundWhereUniqueInput[]
+    update?: PomodoroRoundUpdateWithWhereUniqueWithoutPomodoroSessionInput | PomodoroRoundUpdateWithWhereUniqueWithoutPomodoroSessionInput[]
+    updateMany?: PomodoroRoundUpdateManyWithWhereWithoutPomodoroSessionInput | PomodoroRoundUpdateManyWithWhereWithoutPomodoroSessionInput[]
+    deleteMany?: PomodoroRoundScalarWhereInput | PomodoroRoundScalarWhereInput[]
+  }
+
+  export type PomodoroRoundUncheckedUpdateManyWithoutPomodoroSessionNestedInput = {
+    create?: XOR<PomodoroRoundCreateWithoutPomodoroSessionInput, PomodoroRoundUncheckedCreateWithoutPomodoroSessionInput> | PomodoroRoundCreateWithoutPomodoroSessionInput[] | PomodoroRoundUncheckedCreateWithoutPomodoroSessionInput[]
+    connectOrCreate?: PomodoroRoundCreateOrConnectWithoutPomodoroSessionInput | PomodoroRoundCreateOrConnectWithoutPomodoroSessionInput[]
+    upsert?: PomodoroRoundUpsertWithWhereUniqueWithoutPomodoroSessionInput | PomodoroRoundUpsertWithWhereUniqueWithoutPomodoroSessionInput[]
+    createMany?: PomodoroRoundCreateManyPomodoroSessionInputEnvelope
+    set?: PomodoroRoundWhereUniqueInput | PomodoroRoundWhereUniqueInput[]
+    disconnect?: PomodoroRoundWhereUniqueInput | PomodoroRoundWhereUniqueInput[]
+    delete?: PomodoroRoundWhereUniqueInput | PomodoroRoundWhereUniqueInput[]
+    connect?: PomodoroRoundWhereUniqueInput | PomodoroRoundWhereUniqueInput[]
+    update?: PomodoroRoundUpdateWithWhereUniqueWithoutPomodoroSessionInput | PomodoroRoundUpdateWithWhereUniqueWithoutPomodoroSessionInput[]
+    updateMany?: PomodoroRoundUpdateManyWithWhereWithoutPomodoroSessionInput | PomodoroRoundUpdateManyWithWhereWithoutPomodoroSessionInput[]
+    deleteMany?: PomodoroRoundScalarWhereInput | PomodoroRoundScalarWhereInput[]
+  }
+
+  export type PomodoroSessionCreateNestedOneWithoutRoundsInput = {
+    create?: XOR<PomodoroSessionCreateWithoutRoundsInput, PomodoroSessionUncheckedCreateWithoutRoundsInput>
+    connectOrCreate?: PomodoroSessionCreateOrConnectWithoutRoundsInput
+    connect?: PomodoroSessionWhereUniqueInput
+  }
+
+  export type PomodoroSessionUpdateOneRequiredWithoutRoundsNestedInput = {
+    create?: XOR<PomodoroSessionCreateWithoutRoundsInput, PomodoroSessionUncheckedCreateWithoutRoundsInput>
+    connectOrCreate?: PomodoroSessionCreateOrConnectWithoutRoundsInput
+    upsert?: PomodoroSessionUpsertWithoutRoundsInput
+    connect?: PomodoroSessionWhereUniqueInput
+    update?: XOR<XOR<PomodoroSessionUpdateToOneWithWhereWithoutRoundsInput, PomodoroSessionUpdateWithoutRoundsInput>, PomodoroSessionUncheckedUpdateWithoutRoundsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -5505,6 +8146,32 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type PomodoroSessionCreateWithoutUserInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isCompleted?: boolean | null
+    rounds?: PomodoroRoundCreateNestedManyWithoutPomodoroSessionInput
+  }
+
+  export type PomodoroSessionUncheckedCreateWithoutUserInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isCompleted?: boolean | null
+    rounds?: PomodoroRoundUncheckedCreateNestedManyWithoutPomodoroSessionInput
+  }
+
+  export type PomodoroSessionCreateOrConnectWithoutUserInput = {
+    where: PomodoroSessionWhereUniqueInput
+    create: XOR<PomodoroSessionCreateWithoutUserInput, PomodoroSessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type PomodoroSessionCreateManyUserInputEnvelope = {
+    data: PomodoroSessionCreateManyUserInput | PomodoroSessionCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type TaskUpsertWithWhereUniqueWithoutUserInput = {
     where: TaskWhereUniqueInput
     update: XOR<TaskUpdateWithoutUserInput, TaskUncheckedUpdateWithoutUserInput>
@@ -5564,6 +8231,33 @@ export namespace Prisma {
     userId?: StringFilter<"TimeBlock"> | string
   }
 
+  export type PomodoroSessionUpsertWithWhereUniqueWithoutUserInput = {
+    where: PomodoroSessionWhereUniqueInput
+    update: XOR<PomodoroSessionUpdateWithoutUserInput, PomodoroSessionUncheckedUpdateWithoutUserInput>
+    create: XOR<PomodoroSessionCreateWithoutUserInput, PomodoroSessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type PomodoroSessionUpdateWithWhereUniqueWithoutUserInput = {
+    where: PomodoroSessionWhereUniqueInput
+    data: XOR<PomodoroSessionUpdateWithoutUserInput, PomodoroSessionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PomodoroSessionUpdateManyWithWhereWithoutUserInput = {
+    where: PomodoroSessionScalarWhereInput
+    data: XOR<PomodoroSessionUpdateManyMutationInput, PomodoroSessionUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type PomodoroSessionScalarWhereInput = {
+    AND?: PomodoroSessionScalarWhereInput | PomodoroSessionScalarWhereInput[]
+    OR?: PomodoroSessionScalarWhereInput[]
+    NOT?: PomodoroSessionScalarWhereInput | PomodoroSessionScalarWhereInput[]
+    id?: StringFilter<"PomodoroSession"> | string
+    createdAt?: DateTimeFilter<"PomodoroSession"> | Date | string
+    updatedAt?: DateTimeFilter<"PomodoroSession"> | Date | string
+    isCompleted?: BoolNullableFilter<"PomodoroSession"> | boolean | null
+    userId?: StringFilter<"PomodoroSession"> | string
+  }
+
   export type UserCreateWithoutTasksInput = {
     id?: string
     createdAt?: Date | string
@@ -5576,6 +8270,7 @@ export namespace Prisma {
     intervalsCount?: number | null
     workInterval?: number | null
     TimeBlocks?: TimeBlockCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutTasksInput = {
@@ -5590,6 +8285,7 @@ export namespace Prisma {
     intervalsCount?: number | null
     workInterval?: number | null
     TimeBlocks?: TimeBlockUncheckedCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutTasksInput = {
@@ -5620,6 +8316,7 @@ export namespace Prisma {
     intervalsCount?: NullableIntFieldUpdateOperationsInput | number | null
     workInterval?: NullableIntFieldUpdateOperationsInput | number | null
     TimeBlocks?: TimeBlockUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTasksInput = {
@@ -5634,6 +8331,7 @@ export namespace Prisma {
     intervalsCount?: NullableIntFieldUpdateOperationsInput | number | null
     workInterval?: NullableIntFieldUpdateOperationsInput | number | null
     TimeBlocks?: TimeBlockUncheckedUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutTimeBlocksInput = {
@@ -5648,6 +8346,7 @@ export namespace Prisma {
     intervalsCount?: number | null
     workInterval?: number | null
     tasks?: TaskCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutTimeBlocksInput = {
@@ -5662,6 +8361,7 @@ export namespace Prisma {
     intervalsCount?: number | null
     workInterval?: number | null
     tasks?: TaskUncheckedCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutTimeBlocksInput = {
@@ -5692,6 +8392,7 @@ export namespace Prisma {
     intervalsCount?: NullableIntFieldUpdateOperationsInput | number | null
     workInterval?: NullableIntFieldUpdateOperationsInput | number | null
     tasks?: TaskUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTimeBlocksInput = {
@@ -5706,6 +8407,185 @@ export namespace Prisma {
     intervalsCount?: NullableIntFieldUpdateOperationsInput | number | null
     workInterval?: NullableIntFieldUpdateOperationsInput | number | null
     tasks?: TaskUncheckedUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutPomodoroSessionsInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    email: string
+    name: string
+    password: string
+    userAvatar?: string | null
+    breakInterval?: number | null
+    intervalsCount?: number | null
+    workInterval?: number | null
+    tasks?: TaskCreateNestedManyWithoutUserInput
+    TimeBlocks?: TimeBlockCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutPomodoroSessionsInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    email: string
+    name: string
+    password: string
+    userAvatar?: string | null
+    breakInterval?: number | null
+    intervalsCount?: number | null
+    workInterval?: number | null
+    tasks?: TaskUncheckedCreateNestedManyWithoutUserInput
+    TimeBlocks?: TimeBlockUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutPomodoroSessionsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutPomodoroSessionsInput, UserUncheckedCreateWithoutPomodoroSessionsInput>
+  }
+
+  export type PomodoroRoundCreateWithoutPomodoroSessionInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    totalSeconds: number
+    isCompleted?: boolean | null
+  }
+
+  export type PomodoroRoundUncheckedCreateWithoutPomodoroSessionInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    totalSeconds: number
+    isCompleted?: boolean | null
+  }
+
+  export type PomodoroRoundCreateOrConnectWithoutPomodoroSessionInput = {
+    where: PomodoroRoundWhereUniqueInput
+    create: XOR<PomodoroRoundCreateWithoutPomodoroSessionInput, PomodoroRoundUncheckedCreateWithoutPomodoroSessionInput>
+  }
+
+  export type PomodoroRoundCreateManyPomodoroSessionInputEnvelope = {
+    data: PomodoroRoundCreateManyPomodoroSessionInput | PomodoroRoundCreateManyPomodoroSessionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutPomodoroSessionsInput = {
+    update: XOR<UserUpdateWithoutPomodoroSessionsInput, UserUncheckedUpdateWithoutPomodoroSessionsInput>
+    create: XOR<UserCreateWithoutPomodoroSessionsInput, UserUncheckedCreateWithoutPomodoroSessionsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutPomodoroSessionsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutPomodoroSessionsInput, UserUncheckedUpdateWithoutPomodoroSessionsInput>
+  }
+
+  export type UserUpdateWithoutPomodoroSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    userAvatar?: NullableStringFieldUpdateOperationsInput | string | null
+    breakInterval?: NullableIntFieldUpdateOperationsInput | number | null
+    intervalsCount?: NullableIntFieldUpdateOperationsInput | number | null
+    workInterval?: NullableIntFieldUpdateOperationsInput | number | null
+    tasks?: TaskUpdateManyWithoutUserNestedInput
+    TimeBlocks?: TimeBlockUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutPomodoroSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    userAvatar?: NullableStringFieldUpdateOperationsInput | string | null
+    breakInterval?: NullableIntFieldUpdateOperationsInput | number | null
+    intervalsCount?: NullableIntFieldUpdateOperationsInput | number | null
+    workInterval?: NullableIntFieldUpdateOperationsInput | number | null
+    tasks?: TaskUncheckedUpdateManyWithoutUserNestedInput
+    TimeBlocks?: TimeBlockUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type PomodoroRoundUpsertWithWhereUniqueWithoutPomodoroSessionInput = {
+    where: PomodoroRoundWhereUniqueInput
+    update: XOR<PomodoroRoundUpdateWithoutPomodoroSessionInput, PomodoroRoundUncheckedUpdateWithoutPomodoroSessionInput>
+    create: XOR<PomodoroRoundCreateWithoutPomodoroSessionInput, PomodoroRoundUncheckedCreateWithoutPomodoroSessionInput>
+  }
+
+  export type PomodoroRoundUpdateWithWhereUniqueWithoutPomodoroSessionInput = {
+    where: PomodoroRoundWhereUniqueInput
+    data: XOR<PomodoroRoundUpdateWithoutPomodoroSessionInput, PomodoroRoundUncheckedUpdateWithoutPomodoroSessionInput>
+  }
+
+  export type PomodoroRoundUpdateManyWithWhereWithoutPomodoroSessionInput = {
+    where: PomodoroRoundScalarWhereInput
+    data: XOR<PomodoroRoundUpdateManyMutationInput, PomodoroRoundUncheckedUpdateManyWithoutPomodoroSessionInput>
+  }
+
+  export type PomodoroRoundScalarWhereInput = {
+    AND?: PomodoroRoundScalarWhereInput | PomodoroRoundScalarWhereInput[]
+    OR?: PomodoroRoundScalarWhereInput[]
+    NOT?: PomodoroRoundScalarWhereInput | PomodoroRoundScalarWhereInput[]
+    id?: StringFilter<"PomodoroRound"> | string
+    createdAt?: DateTimeFilter<"PomodoroRound"> | Date | string
+    updatedAt?: DateTimeFilter<"PomodoroRound"> | Date | string
+    totalSeconds?: IntFilter<"PomodoroRound"> | number
+    isCompleted?: BoolNullableFilter<"PomodoroRound"> | boolean | null
+    pomodoroSessionId?: StringFilter<"PomodoroRound"> | string
+  }
+
+  export type PomodoroSessionCreateWithoutRoundsInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isCompleted?: boolean | null
+    user: UserCreateNestedOneWithoutPomodoroSessionsInput
+  }
+
+  export type PomodoroSessionUncheckedCreateWithoutRoundsInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isCompleted?: boolean | null
+    userId: string
+  }
+
+  export type PomodoroSessionCreateOrConnectWithoutRoundsInput = {
+    where: PomodoroSessionWhereUniqueInput
+    create: XOR<PomodoroSessionCreateWithoutRoundsInput, PomodoroSessionUncheckedCreateWithoutRoundsInput>
+  }
+
+  export type PomodoroSessionUpsertWithoutRoundsInput = {
+    update: XOR<PomodoroSessionUpdateWithoutRoundsInput, PomodoroSessionUncheckedUpdateWithoutRoundsInput>
+    create: XOR<PomodoroSessionCreateWithoutRoundsInput, PomodoroSessionUncheckedCreateWithoutRoundsInput>
+    where?: PomodoroSessionWhereInput
+  }
+
+  export type PomodoroSessionUpdateToOneWithWhereWithoutRoundsInput = {
+    where?: PomodoroSessionWhereInput
+    data: XOR<PomodoroSessionUpdateWithoutRoundsInput, PomodoroSessionUncheckedUpdateWithoutRoundsInput>
+  }
+
+  export type PomodoroSessionUpdateWithoutRoundsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    user?: UserUpdateOneRequiredWithoutPomodoroSessionsNestedInput
+  }
+
+  export type PomodoroSessionUncheckedUpdateWithoutRoundsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    userId?: StringFieldUpdateOperationsInput | string
   }
 
   export type TaskCreateManyUserInput = {
@@ -5725,6 +8605,13 @@ export namespace Prisma {
     color?: string | null
     duration: number
     order?: number
+  }
+
+  export type PomodoroSessionCreateManyUserInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isCompleted?: boolean | null
   }
 
   export type TaskUpdateWithoutUserInput = {
@@ -5784,6 +8671,61 @@ export namespace Prisma {
     order?: IntFieldUpdateOperationsInput | number
   }
 
+  export type PomodoroSessionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rounds?: PomodoroRoundUpdateManyWithoutPomodoroSessionNestedInput
+  }
+
+  export type PomodoroSessionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    rounds?: PomodoroRoundUncheckedUpdateManyWithoutPomodoroSessionNestedInput
+  }
+
+  export type PomodoroSessionUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type PomodoroRoundCreateManyPomodoroSessionInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    totalSeconds: number
+    isCompleted?: boolean | null
+  }
+
+  export type PomodoroRoundUpdateWithoutPomodoroSessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSeconds?: IntFieldUpdateOperationsInput | number
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type PomodoroRoundUncheckedUpdateWithoutPomodoroSessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSeconds?: IntFieldUpdateOperationsInput | number
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type PomodoroRoundUncheckedUpdateManyWithoutPomodoroSessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSeconds?: IntFieldUpdateOperationsInput | number
+    isCompleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
 
 
   /**
@@ -5793,6 +8735,10 @@ export namespace Prisma {
      * @deprecated Use UserCountOutputTypeDefaultArgs instead
      */
     export type UserCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use PomodoroSessionCountOutputTypeDefaultArgs instead
+     */
+    export type PomodoroSessionCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PomodoroSessionCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use UserDefaultArgs instead
      */
@@ -5805,6 +8751,14 @@ export namespace Prisma {
      * @deprecated Use TimeBlockDefaultArgs instead
      */
     export type TimeBlockArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TimeBlockDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use PomodoroSessionDefaultArgs instead
+     */
+    export type PomodoroSessionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PomodoroSessionDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use PomodoroRoundDefaultArgs instead
+     */
+    export type PomodoroRoundArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PomodoroRoundDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

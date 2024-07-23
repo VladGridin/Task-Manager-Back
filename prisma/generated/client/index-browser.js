@@ -153,6 +153,23 @@ exports.Prisma.TimeBlockScalarFieldEnum = {
   userId: 'userId'
 };
 
+exports.Prisma.PomodoroSessionScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  isCompleted: 'isCompleted',
+  userId: 'userId'
+};
+
+exports.Prisma.PomodoroRoundScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  totalSeconds: 'totalSeconds',
+  isCompleted: 'isCompleted',
+  pomodoroSessionId: 'pomodoroSessionId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -176,7 +193,9 @@ exports.Priority = exports.$Enums.Priority = {
 exports.Prisma.ModelName = {
   User: 'User',
   Task: 'Task',
-  TimeBlock: 'TimeBlock'
+  TimeBlock: 'TimeBlock',
+  PomodoroSession: 'PomodoroSession',
+  PomodoroRound: 'PomodoroRound'
 };
 
 /**
