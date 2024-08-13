@@ -1,89 +1,88 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma.service';
-import { RegisterDto } from 'src/auth/dto/auth.dto';
 import { hash } from 'argon2';
+import { startOfDay, subDays } from 'date-fns';
+import { RegisterDto } from 'src/auth/dto/auth.dto';
+import { PrismaService } from 'src/prisma.service';
 import { UserDto } from './dto/user.dto';
-import { startOfDay, subDays } from 'date-fns'
 
 @Injectable()
 export class UserService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
   async getById(id: string) {
     return await this.prisma.user.findUnique({
       where: {
-        id
+        id,
       },
       include: {
-        tasks: true
-      }
-    })
+        tasks: true,
+      },
+    });
   }
   async getByEmail(email: string) {
     return await this.prisma.user.findUnique({
       where: {
-        email
-      }
-    })
+        email,
+      },
+    });
   }
   async getProfile(id: string) {
-    const profile = await this.getById(id)
-    const totalTasks = profile.tasks.length
+    const profile = await this.getById(id);
+    const totalTasks = profile.tasks.length;
     // fix next line
     const completedTasks = await this.prisma.task.count({
       where: {
         userId: id,
-        isCompleted: true
-      }
-    })
+        isCompleted: true,
+      },
+    });
 
-    const todayStart = startOfDay(new Date())
-    const weekStart = startOfDay(subDays(new Date(), 7))
+    const todayStart = startOfDay(new Date());
+    const weekStart = startOfDay(subDays(new Date(), 7));
 
     const todayTasks = await this.prisma.task.count({
       where: {
         userId: id,
         createdAt: {
-          gte: todayStart.toISOString()
-        }
-      }
-    })
+          gte: todayStart.toISOString(),
+        },
+      },
+    });
     const weekTasks = await this.prisma.task.count({
       where: {
         userId: id,
         createdAt: {
-          gte: weekStart.toISOString()
-        }
-      }
-    })
+          gte: weekStart.toISOString(),
+        },
+      },
+    });
 
-    const { password, ...rest } = profile
+    const { password, ...rest } = profile;
     return {
       user: rest,
       statistics: [
         { label: 'Total', value: totalTasks },
         { label: 'Complete tasks', value: completedTasks },
         { label: 'Today tasks', value: todayTasks },
-        { label: 'Week tasks', value: weekTasks }
-      ]
-    }
-
+        { label: 'Week tasks', value: weekTasks },
+      ],
+    };
   }
   async create(dto: RegisterDto) {
     const user = {
       email: dto.email,
-      name: '',
+      name: dto.name ? dto.name : '',
       password: await hash(dto.password),
-      userAvatar: (dto.userAvatar ? dto.userAvatar : "none")
-    }
+      userAvatar: dto.userAvatar ? dto.userAvatar : 'none',
+    };
     return this.prisma.user.create({
-      data: user
-    })
+      data: user,
+    });
   }
   async update(id: string, dto: UserDto) {
-    let data = dto
+    let data = dto;
 
     if (dto.password) {
-      data = { ...dto, password: await hash(dto.password) }
+      data = { ...dto, password: await hash(dto.password) };
     }
     return this.prisma.user.update({
       where: {
@@ -92,8 +91,8 @@ export class UserService {
       data,
       select: {
         name: true,
-        email: true
-      }
-    })
+        email: true,
+      },
+    });
   }
 }

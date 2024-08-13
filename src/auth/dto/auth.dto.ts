@@ -1,27 +1,37 @@
-import { IsEmail, IsOptional, IsString, IsUrl, MinLength } from "class-validator"
+import {
+  IsEmail,
+  IsOptional,
+  IsString,
+  IsUrl,
+  MinLength,
+} from 'class-validator';
 
 export class AuthDto {
-    @IsEmail()
-    email: string
+  @IsEmail()
+  email: string;
 
-    @IsString()
-    @MinLength(6, {
-        message: "Password must be at latest 6 characters long"
-    })
-    password: string
+  @IsString()
+  @MinLength(6, {
+    message: 'Password must be at latest 6 characters long',
+  })
+  password: string;
 }
 
 export class RegisterDto {
-    @IsEmail()
-    email: string
+  @IsEmail()
+  email: string;
 
-    @IsString()
-    @MinLength(6, {
-        message: "Password must be at latest 6 characters long"
-    })
-    password: string
+  @IsString()
+  @MinLength(6, {
+    message: 'Password must be at latest 6 characters long',
+  })
+  password: string;
 
-    @IsOptional()
-    @IsUrl()
-    userAvatar: string
+  @IsOptional()
+  @IsString()
+  name?: string;
+
+  @IsOptional()
+  @IsUrl()
+  userAvatar: string;
 }
