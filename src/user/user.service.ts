@@ -71,8 +71,8 @@ export class UserService {
     const user = {
       email: dto.email,
       name: dto.name ? dto.name : '',
+      userAvatar: dto.userAvatar ? dto.userAvatar : undefined,
       password: await hash(dto.password),
-      userAvatar: dto.userAvatar ? dto.userAvatar : 'none',
     };
     return this.prisma.user.create({
       data: user,
@@ -94,5 +94,20 @@ export class UserService {
         email: true,
       },
     });
+  }
+  async updateImage(id: string, userAvatar: string) {
+    const data = await this.prisma.user.update({
+      where: {
+        id: id,
+      },
+      data: {
+        userAvatar: userAvatar,
+      },
+      select: {
+        userAvatar: true,
+      },
+    });
+
+    return data;
   }
 }

@@ -33,5 +33,5 @@ export class RegisterDto {
 
   @IsOptional()
   @IsUrl()
-  userAvatar: string;
+  userAvatar?: string;
 }

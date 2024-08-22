@@ -19,7 +19,6 @@ export class FirebaseService {
       const { password, ...user } = await this.userService.create({
         email: getGoogleUser.email,
         password: getGoogleUser.uid,
-        userAvatar: getGoogleUser.picture,
         name: getGoogleUser.name,
       });
       const tokens = this.AuthService.issueTokens(user.id);

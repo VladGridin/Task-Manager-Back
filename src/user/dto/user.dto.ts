@@ -35,6 +35,10 @@ export class UserDto extends PomodoroSettingsDto {
   name?: string;
 
   @IsOptional()
+  @IsString()
+  userAvatar?: string;
+
+  @IsOptional()
   @MinLength(6, {
     message: 'Password must be at latest 6 characters long',
   })
